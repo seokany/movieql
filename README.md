@@ -1,6 +1,45 @@
 # movieql
 Movie API with Graphql
 
+## 2. Creating a GraphQL Server with GraphQL Yoga
+
+- yarn global add nodemon => 내가 파일을 수정할 때마다 서버를 재시작해줌.
+- package.json => add
+```js
+    "scripts": {
+        "start": "nodemon"
+    } 
+```
+- 환경설정 => [GitHub](https://github.com/prismagraphql/graphql-yoga) => Quickstart
+- yarn global add babel-cli
+=> babel은 코드를 더 좋게 작성해줌.
+- yarn global add babel-cli --ignore-engines
+- package.json => correct "script"
+```js
+    "scripts": {
+        "start": "nodemon --exec babel-node index.js"
+    }
+```
+- new => babelrc
+```js
+    {
+        "presets": ["env", "stage-3"]
+    }
+    // node.js를 위함.
+```
+- yarn add babel-cli babel-preset-env babel-preset-stage-3 --dev
+```js
+    // console.log(""); 실행 확인.
+
+    const server = new GraphQLServer({
+        // 환경설정!
+    });
+
+    server.start(() => console.log("Graphql Server Running"));
+```
+
+
+
 ## 1. Problem solved by GraphQL
 ### * Over-fetching
 내가 원하는 정보보다 더 많은 정보를 서버에서 받는 방식.
@@ -13,6 +52,7 @@ GraphQL은 URL이 존재 하지 않는다.
 오직 하나의 종점만 있을뿐.
 필요한 정보만 입력해서 하나의 query만 거들뿐.
 ex) 
+```js
 {
     feed {
         comments
@@ -46,6 +86,7 @@ ex)
         profile: "http"
     }
 }
+```
 ## Settings
 - mkdir movieql
 - cd movieql
