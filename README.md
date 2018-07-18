@@ -1,6 +1,40 @@
 # movieql
 Movie API with Graphql
 
+## 3. Creating the first Query and Resolver
+* query는 내가 정보를 받을때 마다 쓰인다.
+* mutation은 내가 정보를 바꿀때 서버, database, 메모리 어디든 변형하는것을 말함.
+* 혹시나 playground를 돌리는중 갑자기 events.js:165 throw er;// Unhandled 'error' event를 봤다면 컴퓨터 리셋해보세요. 
+- first query
+    - 여기에 사용자에게 정보를 주는 모든것들을 query로 넣을 것이다.
+    - schema.graphql =>
+```js
+    type Query{
+        name: String!
+        //이름 : 답변 !필수(isRequired)
+    }
+```
+- type definition
+```js
+    const server = new GraphQLServer({
+        typeDefs: "graphql/schema.graphql",
+        resolvers
+    });
+    // err: no schema definition
+    // Resolve 마무리가 필요함!
+    server.start(() => conosole.log("Graphql Server Running"));
+```
+- resolvers.js
+```js
+    const resolvers ={
+        Query: {
+            name: () => "seokhwan!"
+        }
+    }
+    export default resolvers;
+```
+
+
 ## 2. Creating a GraphQL Server with GraphQL Yoga
 
 - yarn global add nodemon => 내가 파일을 수정할 때마다 서버를 재시작해줌.
