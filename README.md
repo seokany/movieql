@@ -1,6 +1,28 @@
 # movieql
 Movie API with Graphql
 
+## 6. Creating Queries with Arguments
+* 나의 data가 어떻게 보일지 정의하고 (Schema.graphql), 정의에 대한 것을 resolvers.js에서 작동할 함수를 정의하여 정의한것을 작동하게 하여 내가 원하는 종류의 backend를 가질 수 있다.
+* resolvers는 어떤한 것도 될 수 있다. API에 다가 갈 수도 Database에 갈 수도
+* resolvers는 기본적으로 View 에 해당한다.
+* Schema는 URLs 같은 거다. 어디로 갈지 정해주니까.
+- db.js =>
+```js
+    export const getById = id => {
+        const filterdPeople = people.filter(person => person.id === String(id));
+        return filteredPeople[0];
+    }
+```
+- resolvers =>
+```js
+    const resolvers = {
+        Query: {
+            people: () => people,
+            person: (_, { id }) => getById(id)
+        }
+    };
+```
+
 ## 5. Extending the Schema 2
 * 좀더 복잡한 Query를 다뤄보자.
 * Resolver => database에 가서 무엇을 관찰하고 무엇을 린턴할지 등등 생각해보기.
@@ -10,7 +32,7 @@ Movie API with Graphql
 - schema.graphql => type Query > people:[Person]!, person(id:Int): Person
 - db.js => resolvers.js안의 people배열을 옮기고 export시키자.
 - db.js => id에 관해 수정 , schema.graphql => type Person > id: Int!
-- db.js => export cont getbyId
+- db.js => export const getbyId
 - resolvers.js => Query > person:()  => getbyId
 
 ## 4. Extending the Schema
