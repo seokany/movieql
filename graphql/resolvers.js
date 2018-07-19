@@ -1,6 +1,14 @@
+const Seokhwan = {    
+    name: "이석환",
+    age: 23,
+    gender: "male"    
+}
+
+
+
 const resolvers = {
     Query: {
-        name: () => "seokhwan!"
+        person: () => Seokhwan
     }
 }
 

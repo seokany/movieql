@@ -1,9 +1,17 @@
 # movieql
 Movie API with Graphql
 
+## 4. Extending the Schema
+- resolvers.js => const Seokhwan
+- resolvers.js => const resolvers
+- schema.graphql => type Seokhwan
+- schema.graphql => type query
+
+
 ## 3. Creating the first Query and Resolver
 * query는 내가 정보를 받을때 마다 쓰인다.
 * mutation은 내가 정보를 바꿀때 서버, database, 메모리 어디든 변형하는것을 말함.
+* no Schema undefined => 내가 받거나 줄 정보에 관한 서술. just scription
 * 혹시나 playground를 돌리는중 갑자기 events.js:165 throw er;// Unhandled 'error' event를 봤다면 컴퓨터 리셋해보세요. 
 - first query
     - 여기에 사용자에게 정보를 주는 모든것들을 query로 넣을 것이다.
