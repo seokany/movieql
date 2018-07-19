@@ -1,6 +1,18 @@
 # movieql
 Movie API with Graphql
 
+## 5. Extending the Schema 2
+* 좀더 복잡한 Query를 다뤄보자.
+* Resolver => database에 가서 무엇을 관찰하고 무엇을 린턴할지 등등 생각해보기.
+
+- resolvers.js => people 배열 만들기, query에 people 할당하기
+- schema.graphql => type Person > name, age, gender
+- schema.graphql => type Query > people:[Person]!, person(id:Int): Person
+- db.js => resolvers.js안의 people배열을 옮기고 export시키자.
+- db.js => id에 관해 수정 , schema.graphql => type Person > id: Int!
+- db.js => export cont getbyId
+- resolvers.js => Query > person:()  => getbyId
+
 ## 4. Extending the Schema
 - resolvers.js => const Seokhwan
 - resolvers.js => const resolvers
