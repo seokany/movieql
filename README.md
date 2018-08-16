@@ -1,6 +1,33 @@
 # movieql
 Movie API with Graphql
 
+## 7. Defining Mutations & Creating frist Mutation
+* change of state
+- schema.graphql => type Mutation
+```js
+    type Mutation {
+        addMovie(name:String!, score: Int!): Movie!
+    }
+```
+- resolvers.js =>
+```js
+    Mutation: {
+        addMovie: {_. {name, score}} =>
+    }
+```
+- db.js =>
+```js
+    export const addMovie = (name, score) => {
+        const newMovies = {
+            id: `${movies,length + 1}`,
+            name,
+            score
+        };
+        movies.push(newMovie);
+        return newMovie;
+    }
+```
+
 ## 6. Creating Queries with Arguments
 * 나의 data가 어떻게 보일지 정의하고 (Schema.graphql), 정의에 대한 것을 resolvers.js에서 작동할 함수를 정의하여 정의한것을 작동하게 하여 내가 원하는 종류의 backend를 가질 수 있다.
 * resolvers는 어떤한 것도 될 수 있다. API에 다가 갈 수도 Database에 갈 수도

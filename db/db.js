@@ -1,27 +1,51 @@
-export const people = [
-    {   id: "0",
-        name: "이석환",
-        age: 23,
-        gender: "male"    
+let movies = [
+    {
+        id : 0,
+        name : "intern",
+        score : 4
     },
-    {   id: "1",
-        name: "김경진",
-        age: 23,
-        gender: "female"
+    {
+        id : 1,
+        name : "NottingHill",
+        score : 4
     },
-    {   id: "2",
-        name: "강희승",
-        age: 22,
-        gender: "none"
+    {
+        id : 2,
+        name : "Cinema Paradiso",
+        score : 5
     },
-    {   id: "3",
-        name: "김대유",
-        age: 23,
-        gender: "bigyou"
+    {
+        id : 3,
+        name : "God father",
+        score : 5
     }
 ];
 
+export const getMovies = () => movies; 
+
 export const getById = id => {
-    const filteredPeople = people.filter(person => person.id === String(id));
-    return filteredPeople[0]; 
+    const filteredMovies = movies.filter(movie => movie.id === String(id));
+    return filteredMovies[0]; 
 }
+//movie 필터 => 같은 id를 가지지 않은 클린한 배열을 원한다.
+export const deleteMovie = id => {
+    const cleanMovies = movies.filter(movie => movie.id !== String(id));
+    if(movies.length > cleanedMovies.length) {
+        movies = cleanedMovies;
+        return true;
+    } else {
+        return false;
+    }
+};
+
+export const addMovie = (name, score) => {
+    const newMovie = {
+        id: `${movies.length + 1}`,
+        name,
+        score
+    };
+    movies.push(newMovie);
+    console.log(movies);
+    return newMovie;
+}
+
