@@ -24,12 +24,12 @@ let movies = [
 export const getMovies = () => movies; 
 
 export const getById = id => {
-    const filteredMovies = movies.filter(movie => movie.id === String(id));
+    const filteredMovies = movies.filter(movie => movie.id === id);
     return filteredMovies[0]; 
 }
 //movie 필터 => 같은 id를 가지지 않은 클린한 배열을 원한다.
 export const deleteMovie = id => {
-    const cleanMovies = movies.filter(movie => movie.id !== String(id));
+    const cleanedMovies = movies.filter(movie => movie.id !== id);
     if(movies.length > cleanedMovies.length) {
         movies = cleanedMovies;
         return true;

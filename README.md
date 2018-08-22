@@ -1,6 +1,15 @@
 # movieql
 Movie API with Graphql
 
+## 8. Delete Mutation
+// 새로 추가한 addMovie 가 삭제가 안됨 수정필요.
+* add const resolvers > deleteMovie: (_, {id}) => deleteMovie(id)
+* * add export const addMovie = (name, score)
+* add type Mutation => schema.graphql
+```js
+    deleteMovie(id: Int!): Boolean!
+```
+
 ## 7. Defining Mutations & Creating frist Mutation
 * change of state
 - schema.graphql => type Mutation
